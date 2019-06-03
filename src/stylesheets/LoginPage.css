@@ -1,0 +1,48 @@
+/*@font-face {*/
+/*    -fx-font-family: "Bahnschrift Light";*/
+/*    src: url("../stylesheets.fonts/Bahnschrift/bahnschrift.ttf");*/
+/*    !*TODO: font not loading -> find a way to solve it*!*/
+/*}*/
+
+.login-container{
+    -fx-background-color: #f2f2f2;
+}
+
+.login-wrap{
+    -fx-border-radius: 10px;
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-padding: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.loginBtn{
+    -fx-font-family: "Bahnschrift";
+    -fx-font-size: 30px;
+    -fx-color: #fff;
+    -fx-text-transform: uppercase;
+    -fx-background-color: linear-gradient(to right, deepskyblue, mediumpurple);
+    -fx-background-radius: 20px;
+    -fx-text-fill: white;
+    -fx-padding: 0 20px;
+    -fx-width: 100%;
+    -fx-height: 50px;
+}
+
+.textbox{
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0 -1 -3 -1, 0 0 0 0, 0 -1 0 -1;
+}
+
+.textbox:focused{
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 0 -1;
+}
+
+.texts{
+    -fx-font-family: Bahnschrift;
+    -fx-font-size: 28px;
+}

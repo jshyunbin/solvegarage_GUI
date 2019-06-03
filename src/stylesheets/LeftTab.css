@@ -1,0 +1,19 @@
+.discoverTab{
+    -fx-border-color: darkorange;
+    -fx-border-width: 0px 5px 0px 0px;
+}
+
+.categoriesTab{
+    -fx-border-color: darkorange;
+    -fx-border-width: 0px 5px 0px 0px;
+}
+
+.postTab{
+    -fx-border-color: darkorange;
+    -fx-border-width: 0px 5px 0px 0px;
+}
+
+.rankingTab{
+    -fx-border-color: darkorange;
+    -fx-border-width: 0px 5px 0px 0px;
+}
