@@ -10,21 +10,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="1000.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.main.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="813.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.main.LoginController">
     <stylesheets>
         <URL value="@../stylesheets/LoginPage.css" />
     </stylesheets>
-   <top>
-      <AnchorPane prefHeight="749.0" prefWidth="1000.0" styleClass="login-container" BorderPane.alignment="CENTER">
+   <center>
+      <AnchorPane prefHeight="758.0" prefWidth="846.0" styleClass="login-container" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutX="294.0" layoutY="115.0" prefHeight="508.0" prefWidth="412.0" styleClass="login-wrap">
+            <Pane layoutX="201.0" layoutY="123.0" prefHeight="508.0" prefWidth="412.0" styleClass="login-wrap">
                <children>
+                  <Label layoutX="139.0" layoutY="43.0" styleClass="welcome-text" text="Welcome" />
                   <Label layoutX="27.0" layoutY="223.0" styleClass="texts" text="Password">
                      <font>
                         <Font size="34.0" />
                      </font>
                   </Label>
-                  <Button fx:id="loginBtn" layoutX="27.0" layoutY="339.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="340.0" styleClass="loginBtn" text="LOGIN">
+                  <Button fx:id="loginBtn" layoutX="36.0" layoutY="340.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="340.0" styleClass="loginBtn" text="LOGIN">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -35,10 +36,16 @@
                         <Font name="Arial" size="34.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="emailText" layoutX="31.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="350.0" styleClass="textbox" />
+                  <TextField fx:id="usernameText" layoutX="31.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="350.0" styleClass="textbox" />
+                  <Pane layoutX="35.0" layoutY="445.0" prefHeight="25.0" prefWidth="343.0" styleClass="bottomtext-wrap">
+                     <children>
+                        <Label text="Don't have an account?" />
+                        <Label fx:id="signupText" layoutX="252.0" styleClass="signup-text" text="sign up here." />
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </children>
       </AnchorPane>
-   </top>
+   </center>
 </BorderPane>
