@@ -27,7 +27,6 @@ public class MultiScreen { // control screen to switch through panes
     /**
      * Constructor for setting n number of scenes as 'emptyScreen'
      *
-     * @param n the number of scenes you want to set as 'emptyScreen'
      * @param s name of each scene
      * @throws Exception
      */
@@ -55,7 +54,7 @@ public class MultiScreen { // control screen to switch through panes
      * @param name
      * @param pane
      */
-    public void addScreen(String name, Pane pane) {
+    public void addScreen(String name, Node pane) {
         if (screenMap.get(name) != null) {
             screenMap.remove(name);
         }

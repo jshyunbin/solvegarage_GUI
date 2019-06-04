@@ -6,7 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import src.Utils.HttpConnect;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,6 +25,8 @@ public class LoginController implements Initializable {
     @FXML Button loginBtn;
     @FXML Label signupText;
 
+    String id, password;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         signupText.setOnMouseClicked(e -> signup());
@@ -38,5 +42,15 @@ public class LoginController implements Initializable {
     }
 
     private void login() {
+        id = usernameText.getText();
+        password = passwordText.getText();
+        usernameText.clear();
+        passwordText.clear();
+        HttpConnect httpConnect = new HttpConnect();
+        try {
+            httpConnect.sendLoginPost(id, password);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

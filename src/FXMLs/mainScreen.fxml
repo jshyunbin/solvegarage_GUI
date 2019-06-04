@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -13,9 +14,6 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.scene.main.Controller">
-   <center>
-      <ScrollPane fx:id="contentPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </center>
    <top>
       <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="43.0" prefWidth="980.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +27,7 @@
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
             </TextField>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="43.0" prefWidth="189.0">
                <children>
                   <Label fx:id="loginLabel" text="Log In">
                      <HBox.margin>
@@ -56,10 +54,59 @@
          </children>
       </VBox>
    </right>
-   <left>
-      <Pane fx:id="leftBorder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="146.0" BorderPane.alignment="CENTER" />
-   </left>
    <stylesheets>
       <URL value="@../stylesheets/mainScreen.css" />
    </stylesheets>
+   <center>
+      <HBox fx:id="centerContainer" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="leftBorder" prefHeight="737.0" prefWidth="148.0">
+               <VBox alignment="TOP_RIGHT" prefHeight="722.0" prefWidth="146.0">
+                  <children>
+                     <Label fx:id="discoverTab" styleClass="discoverTab" text="Discover">
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                        <font>
+                           <Font name="AvenirNextLTPro-Regular" size="21.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="categoriesTab" styleClass="categoriesTab" text="Categories">
+                        <font>
+                           <Font name="AvenirNextLTPro-Regular" size="21.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Label>
+                     <Label fx:id="postTab" styleClass="postTab" text="Post">
+                        <font>
+                           <Font name="AvenirNextLTPro-Regular" size="21.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Label>
+                     <Label fx:id="rankingTab" styleClass="rankingTab" text="Ranking">
+                        <font>
+                           <Font name="AvenirNextLTPro-Regular" size="21.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Label>
+                  </children>
+                  <stylesheets>
+                     <URL value="@../stylesheets/leftTab.css" />
+                  </stylesheets>
+               </VBox>
+            </Pane>
+            <ScrollPane fx:id="contentPane" prefHeight="737.0" prefWidth="755.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+              </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+   </center>
 </BorderPane>
