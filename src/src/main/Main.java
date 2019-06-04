@@ -7,11 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import src.scene.login.LoginTransfer;
 
-import java.io.IOException;
 
 public class Main extends Application {
 
-    private Stage loginStage;
     private static Parent loginpage;
     public static Stage stage;
 
@@ -33,10 +31,10 @@ public class Main extends Application {
 
     /**
      *  static method activated when login button is clicked
-     *  TODO: add Thread class that handles login transfer
+     * TODO: synchronization not working... Add a task Thread??
      *
      */
-    public static void loginClick() {
+    public synchronized static void loginClick() {
         Thread loginTransfer = new LoginTransfer();
         stage = new Stage();
         stage.setTitle("login");
@@ -44,12 +42,5 @@ public class Main extends Application {
         stage.setScene(new Scene(loginpage));
         stage.show();
         loginTransfer.start();
-        synchronized (loginTransfer) {
-            try {
-                loginTransfer.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

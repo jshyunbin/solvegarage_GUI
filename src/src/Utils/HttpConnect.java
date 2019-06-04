@@ -27,6 +27,7 @@ public class HttpConnect {
         String url = "http://buttercrab.iptime.org:3080/login";
         URL object = new URL(url);
         HttpURLConnection con = (HttpURLConnection) object.openConnection();
+        con.setDoOutput(true);
         con.setRequestMethod("POST");
         String body = "{'id'='" + id + "','pw'='" + password + "'}";
         DataOutputStream wr = new DataOutputStream(con.getOutputStream());

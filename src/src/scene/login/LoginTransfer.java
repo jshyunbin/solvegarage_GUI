@@ -16,13 +16,9 @@ import java.io.IOException;
 public class LoginTransfer extends Thread {
 
     @Override
-    public void run() {
-        synchronized (this) {
-            System.out.println("loginPage");
-            while(Main.stage.isShowing()) {
-                ;
-            }
-            notify();
-        }
+    public synchronized void run() {
+        System.out.println("loginPage");
+        while(Main.stage.isShowing()) ;
+
     }
 }
