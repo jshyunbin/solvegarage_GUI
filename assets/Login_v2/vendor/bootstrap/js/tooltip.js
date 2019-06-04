@@ -33,7 +33,7 @@ Popper = Popper && 'default' in Popper ? Popper['default'] : Popper;
 /**
  * Check if the given variable is a function
  * @method
- * @memberof Popper.Utils
+ * @memberof Popper.src.Utils
  * @argument {Any} functionToCheck - variable to check
  * @returns {Boolean} answer to: is a function?
  */

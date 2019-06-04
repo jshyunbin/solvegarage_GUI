@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Monda:400,700&display=swap');
+
+.text-wrap{
+    -fx-font-family: Monda, sans-serif;
+    -fx-font-weight: 400;
+}
+
+.oops-text{
+    -fx-font-weight: 700;
+    -fx-font-size: 70px;
+    -fx-text-fill: linear-gradient(to right, #ffa500, rgba(255, 164, 0, 0.51));
+}
+
+.description-text{
+    -fx-font-size: 20px;
+}

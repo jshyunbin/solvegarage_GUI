@@ -1,23 +1,23 @@
-package scene.main;
+package src.scene.main;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import src.Utils.MultiScreen;
+import src.main.Main;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Controller for main Screen
+ * Controller for src.main Screen
  *
  */
 
@@ -29,38 +29,33 @@ public class Controller implements Initializable{
     @FXML ScrollPane contentPane;
 
     // TODO: make FXMLs files for each tab
-    MultiScreen contentScreen = new MultiScreen();
+    static private String[] sceneName = {"discover", "categories", "post", "ranking"};
+    static MultiScreen contentScreen = new MultiScreen(sceneName);
     private Parent leftTab;
-    private Parent loginpage;
-    String currentPage = "discover";
+    private String currentPage = "discover";
     // TODO: add screens to contentScreen
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         try{
-            leftTab = FXMLLoader.load(getClass().getResource("../../FXMLs/leftTab.fxml"));
-            loginpage = FXMLLoader.load(getClass().getResource("../../FXMLs/loginPage.fxml"));
+            leftTab = FXMLLoader.load(getClass().getResource("../../../FXMLs/leftTab.fxml"));
         } catch(IOException e) {
-            System.out.println("No file named \"../../FXMLs/leftTab.fxml\" or \"../../FXMLs/loginPage.fxml\"");
+            System.out.println("No file named \"../../../FXMLs/leftTab.fxml\"");
         }
         leftBorder.getChildren().add(leftTab);
         contentPane.setContent(contentScreen.currentScreen());
-        loginLabel.setOnMouseClicked(e -> loginClick());
+        loginLabel.setOnMouseClicked(e -> Main.loginClick());
         solvegarage.setOnMouseClicked(e -> iconClick());
-    }
-
-    private void loginClick() {
-        Stage stage = new Stage();
-        stage.setTitle("Login");
-        stage.setScene(new Scene(loginpage));
-        stage.setResizable(false);
-        stage.show();
-        System.out.println("loginPage");
     }
 
     private void iconClick() {
         currentPage = "discover";
         System.out.println("discover");
+    }
+
+    static void tabClick(String sceneName) {
+        System.out.println(sceneName);
+        contentScreen.activate(sceneName);
     }
 
 

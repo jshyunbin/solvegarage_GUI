@@ -1,4 +1,4 @@
-package scene.main;
+package src.scene.login;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,7 +31,7 @@ public class LoginController implements Initializable {
 
     /**
      *  Activates when signup text is clicked.
-     *  changes scene to signup scene
+     *  changes src.scene to signup src.scene
      */
     private void signup() {
 

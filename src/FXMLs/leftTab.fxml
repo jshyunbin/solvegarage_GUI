@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_RIGHT" prefHeight="722.0" prefWidth="146.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.main.LeftTabController">
+<VBox alignment="TOP_RIGHT" prefHeight="722.0" prefWidth="146.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.scene.main.LeftTabController">
     <children>
         <Label fx:id="discoverTab" styleClass="discoverTab" text="Discover">
             <VBox.margin>
@@ -42,6 +42,6 @@
         </Label>
     </children>
     <stylesheets>
-        <URL value="@../stylesheets/LeftTab.css" />
+        <URL value="@../stylesheets/leftTab.css" />
     </stylesheets>
 </VBox>
