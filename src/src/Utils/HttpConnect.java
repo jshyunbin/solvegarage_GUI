@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.ConnectException;
 
 
 /**
@@ -19,18 +20,26 @@ public class HttpConnect {
 
     /**
      *
-     * @param id
-     * @param password
-     * @throws IOException
+     * @param id the username of the account
+     * @param password the password of the account
+     * @return returns the JSON response content as String type
+     * @throws IOException IOException on HttpURLConnection declaration
      */
-    public void sendLoginPost(String id, String password) throws IOException {
-        String url = "http://buttercrab.iptime.org:3080/login";
+    public String sendPost(String id, String password, String type) throws IOException {
+        String url = "http://buttercrab.iptime.org:3080/" + type;
         URL object = new URL(url);
         HttpURLConnection con = (HttpURLConnection) object.openConnection();
         con.setDoOutput(true);
         con.setRequestMethod("POST");
         String body = "{'id'='" + id + "','pw'='" + password + "'}";
-        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+        DataOutputStream wr;
+        try {
+            wr = new DataOutputStream(con.getOutputStream());
+        } catch(ConnectException e) {
+            e.printStackTrace();
+            System.out.println("server connection timed out");
+            return "timed out";
+        }
         wr.writeBytes(body);
         wr.flush();
         wr.close();
@@ -51,5 +60,6 @@ public class HttpConnect {
 
         //print result
         System.out.println(response.toString());
+        return response.toString();
     }
 }

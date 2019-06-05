@@ -28,7 +28,6 @@ public class MultiScreen { // control screen to switch through panes
      * Constructor for setting n number of scenes as 'emptyScreen'
      *
      * @param s name of each scene
-     * @throws Exception
      */
     public MultiScreen(String[] s){
 
@@ -51,8 +50,8 @@ public class MultiScreen { // control screen to switch through panes
      * Adds a scene to the instance
      * Replaces the scene if there exists a scene with the same name
      *
-     * @param name
-     * @param pane
+     * @param name name of the scene you want to add
+     * @param pane the scene you want to add
      */
     public void addScreen(String name, Node pane) {
         if (screenMap.get(name) != null) {
@@ -64,7 +63,7 @@ public class MultiScreen { // control screen to switch through panes
     /**
      * Removes a particular scene
      *
-     * @param name
+     * @param name the name of the scene you want to remove
      */
     public void removeScreen(String name) {
         screenMap.remove(name);
@@ -73,7 +72,7 @@ public class MultiScreen { // control screen to switch through panes
     /**
      * Activates a particular scene
      *
-     * @param name
+     * @param name the name of the scene you want to activate
      */
     public void activate(String name) {
         root = screenMap.get(name);
@@ -83,7 +82,7 @@ public class MultiScreen { // control screen to switch through panes
     /**
      * Returns the current Scene
      *
-     * @return
+     * @return returns the current activated scene
      */
     public Node currentScreen() {
         if (currentName.equals("undefined")) return null;
@@ -91,9 +90,8 @@ public class MultiScreen { // control screen to switch through panes
     }
 
     /**
-     * returns the current Scene name
      *
-     * @return
+     * @return returns the current scene name
      */
     public String getName() {
         return currentName;
