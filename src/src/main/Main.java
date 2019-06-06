@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import src.Utils.HttpConnect;
 
 /**
  * the Main class takes care of the Stages
@@ -16,7 +17,54 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private static Stage loginStage, registerStage;
-    private static String token;
+    private static String token, publicKey;
+
+    /**
+     * sets token value
+     *
+     * @param token1 the token value you desire to set
+     */
+    public static void setToken(String token1) {
+        token = token1;
+    }
+
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+
+    /**
+     * static method activated when login button is clicked
+     */
+    public synchronized static void loginClick() {
+        loginStage.show();
+    }
+
+    public static void closeStage(String stageName) {
+        if (stageName.equals("login")) {
+            loginStage.close();
+        } else if (stageName.equals("sign up")) {
+            registerStage.close();
+        }
+    }
+
+    /**
+     * Tools for handling token and public key value
+     */
+
+    public static String getPublicKey() {
+        return publicKey;
+    }
+
+    /**
+     * sets public key value
+     *
+     * @param publicKey1 the public key value you desire to set
+     */
+    public static void setPublicKey(String publicKey1) {
+        publicKey = publicKey1;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -40,32 +88,7 @@ public class Main extends Application {
         registerStage.setScene(new Scene(registerpage));
 
         token = null;
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-
-    /**
-     *  static method activated when login button is clicked
-     *
-     */
-    public synchronized static void loginClick() {
-        loginStage.show();
-    }
-
-    public static void closeStage(String stageName) {
-        if(stageName.equals("login")) {
-            loginStage.close();
-        }
-        else if (stageName.equals("sign up")) {
-            registerStage.close();
-        }
-    }
-
-    public static void setToken(String token1) {
-        token = token1;
+        HttpConnect httpConnect = new HttpConnect();
+        httpConnect.getPublicKey();
     }
 }

@@ -51,7 +51,7 @@ public class LoginController implements Initializable {
         HttpConnect httpConnect = new HttpConnect();
         String responseCode = "";
         try {
-            responseCode = httpConnect.sendPost(id, password, "login");
+            responseCode = httpConnect.sendLoginPost(id, password, "login");
         } catch (IOException e) {
             e.printStackTrace();
         }

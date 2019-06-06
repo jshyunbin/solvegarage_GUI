@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="FXMLs.Registerpage"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import java.net.URL?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="753.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="src.scene.login.RegisterController">
+    <stylesheets>
+        <URL value="@../stylesheets/registerPage.css"/>
+    </stylesheets>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" styleClass="register-container">
+            <children>
+                <Pane layoutX="155.0" layoutY="123.0" prefHeight="508.0" prefWidth="412.0" styleClass="register-wrap"/>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

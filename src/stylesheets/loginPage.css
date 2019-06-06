@@ -4,12 +4,6 @@
     -fx-background-color: #f2f2f2;
 }
 
-.welcome-text{
-    -fx-font-family: 'AvenirNext LT Pro Regular', sans-serif;
-    -fx-font-weight: 400;
-    -fx-font-size: 30px;
-}
-
 .login-wrap{
     -fx-border-radius: 10px;
     -fx-background-color: white;
@@ -17,6 +11,12 @@
     -fx-padding: 10px;
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.welcome-text {
+    -fx-font-family: 'AvenirNext LT Pro Regular', sans-serif;
+    -fx-font-weight: 400;
+    -fx-font-size: 30px;
 }
 
 .loginBtn{
@@ -50,10 +50,6 @@
     -fx-background-insets: 0 -1 -2 -1, 0 0 0 0, 0 -1 0 -1;
 }
 
-.textbox:hover{
-    -fx-background-color: linear-gradient(to right, #ffa500, #ff6056), white, white;
-    -fx-background-insets: 0 -1 -2 -1, 0 0 0 0, 0 -1 0 -1;
-}
 
 .texts{
     -fx-font-family: 'Monda', sans-serif;
