@@ -28,12 +28,12 @@ public class LoginController implements Initializable {
     @FXML Button loginBtn;
     @FXML Label signupText;
 
-    private String id, password;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         signupText.setOnMouseClicked(e -> signup());
         loginBtn.setOnMouseClicked(e -> login());
+        signupText.setOnMouseClicked(e -> Main.openRegister());
     }
 
     /**
@@ -45,8 +45,8 @@ public class LoginController implements Initializable {
     }
 
     private void login() {
-        id = usernameText.getText();
-        password = passwordText.getText();
+        String id = usernameText.getText();
+        String password = passwordText.getText();
         JsonObject object = null;
         try {
             object = SecureHttpConnection.post(SecureHttpConnection.loginURL, "{'id':'" + id + "','pw':'" + password +
@@ -59,7 +59,7 @@ public class LoginController implements Initializable {
         if (success) {
             usernameText.clear();
             passwordText.clear();
-            Main.closeStage("login");
+            Main.closeStage();
             Main.setToken(object.get("token").getAsString());
         }else {
             int code = object.get("code").getAsInt();

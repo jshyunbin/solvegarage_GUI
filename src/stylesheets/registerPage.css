@@ -19,6 +19,29 @@
     -fx-font-size: 20px;
 }
 
+.register-content {
+    -fx-font-size: 20px;
+}
+
+.texts {
+    -fx-font-family: 'Monda', sans-serif;
+    -fx-font-weight: 400;
+
+}
+
+.textbox {
+    -fx-background-color: #a9a9a9, white, white;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0 -1 -3 -1, 0 0 0 0, 0 -1 0 -1;
+    -fx-font-family: 'AvenirNext LT Pro Regular', sans-serif;
+    -fx-font-size: 20px;
+}
+
+.textbox:focused {
+    -fx-background-color: linear-gradient(to right, #ff6056, #ffa500), white, white;
+    -fx-background-insets: 0 -1 -2 -1, 0 0 0 0, 0 -1 0 -1;
+}
+
 .signup-btn {
     -fx-font-family: 'Monda', sans-serif;
     -fx-font-weight: 700;

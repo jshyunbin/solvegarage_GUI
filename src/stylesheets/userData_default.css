@@ -1,0 +1,7 @@
+.wrap {
+    -fx-font-size: 15px;
+}
+
+.signup-btn {
+    -fx-background-color: lightgreen;
+}

@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import src.Utils.SecureHttpConnection;
+import src.scene.main.Controller;
 
 /**
  * the Main class takes care of the Stages
@@ -16,9 +17,11 @@ import src.Utils.SecureHttpConnection;
  */
 public class Main extends Application {
 
-    private static Stage loginStage, registerStage;
+    public static String id;
     private static String token;
+    private static Stage loginStage;
     private static byte[] serverPublicKey;
+    private static Scene loginScene, registerScene;
 
 
     /**
@@ -39,22 +42,37 @@ public class Main extends Application {
     /**
      * static method activated when login button is clicked
      */
-    public synchronized static void loginClick() {
+    public static void openLogin() {
+        loginStage.setTitle("login");
+        loginStage.setScene(loginScene);
         loginStage.show();
     }
 
-    public static void closeStage(String stageName) {
-        if (stageName.equals("login")) {
-            loginStage.close();
-        } else if (stageName.equals("sign up")) {
-            registerStage.close();
-        }
+    /**
+     * static method activated when register text is clicked inside the login stage.
+     */
+    public static void openRegister() {
+        loginStage.setScene(registerScene);
+        loginStage.setTitle("sign up");
+        loginStage.show();
     }
 
     /**
-     * Tools for handling token and public key value
+     * closes the current
      */
+    public static void closeStage() {
+        loginStage.close();
+        Controller.updateUserData();
+    }
 
+
+    //Tools for handling token and public key value
+
+    /**
+     * gets the server public key
+     *
+     * @return returns the server public key
+     */
     public static byte[] getServerPublicKey() {
         return serverPublicKey;
     }
@@ -68,26 +86,29 @@ public class Main extends Application {
         serverPublicKey = serverPublicKey1;
     }
 
+
+    /**
+     * The start method of the Main class.
+     *
+     * @param primaryStage primary stage
+     * @throws Exception exception on loading fxml files
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
         // loading fxml files
         Parent root = FXMLLoader.load(getClass().getResource("../../FXMLs/mainScreen.fxml"));
-        Parent loginpage = FXMLLoader.load(getClass().getResource("../../FXMLs/loginPage.fxml"));
-        Parent registerpage = FXMLLoader.load(getClass().getResource("../../FXMLs/registerPage.fxml"));
+        Parent loginPage = FXMLLoader.load(getClass().getResource("../../FXMLs/loginPage.fxml"));
+        Parent registerPage = FXMLLoader.load(getClass().getResource("../../FXMLs/registerPage.fxml"));
 
         primaryStage.setTitle("solvegarage");
         primaryStage.setScene(new Scene(root, 1000, 800));
         primaryStage.show();
 
-        loginStage = new Stage();
-        loginStage.setTitle("login");
-        loginStage.setResizable(false);
-        loginStage.setScene(new Scene(loginpage));
+        loginScene = new Scene(loginPage);
+        registerScene = new Scene(registerPage);
 
-        registerStage = new Stage();
-        registerStage.setTitle("sign up");
-        registerStage.setResizable(false);
-        registerStage.setScene(new Scene(registerpage));
+        loginStage = new Stage();
+        loginStage.setResizable(false);
 
         token = null;
         serverPublicKey = SecureHttpConnection.getServerPublicKey();

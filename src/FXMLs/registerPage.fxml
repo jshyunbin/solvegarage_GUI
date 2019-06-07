@@ -12,24 +12,25 @@
     <center>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="register-container" BorderPane.alignment="CENTER">
             <children>
-                <Pane layoutX="155.0" layoutY="75.0" prefHeight="603.0" prefWidth="412.0" styleClass="register-wrap">
+                <Pane layoutX="155.0" layoutY="123.0" prefHeight="508.0" prefWidth="412.0" styleClass="register-wrap">
                     <children>
                         <Pane layoutX="22.0" layoutY="14.0" prefHeight="65.0" prefWidth="368.0" styleClass="title-wrap">
                             <children>
                                 <Label layoutX="16.0" layoutY="21.0" text="Create your SOLVEGARAGE account"/>
                             </children>
                         </Pane>
-                        <Pane layoutX="31.0" layoutY="80.0" prefHeight="387.0" prefWidth="350.0">
+                        <Pane layoutX="21.0" layoutY="93.0" prefHeight="262.0" prefWidth="371.0"
+                              styleClass="register-content">
                             <children>
-                                <Label text="Label"/>
-                                <TextField/>
-                                <Label text="Label"/>
-                                <TextField/>
+                                <Label layoutX="11.0" layoutY="131.0" styleClass="texts" text="Password"/>
+                                <TextField fx:id="idField" layoutX="11.0" layoutY="65.0" prefHeight="40.0"
+                                           prefWidth="350.0" styleClass="textbox"/>
+                                <Label layoutX="14.0" layoutY="14.0" styleClass="texts" text="Username"/>
+                                <PasswordField fx:id="pwField" layoutX="11.0" layoutY="176.0" prefHeight="40.0"
+                                               prefWidth="350.0" styleClass="textbox"/>
                             </children>
                         </Pane>
-                        <Button layoutX="36.0" layoutY="477.0" mnemonicParsing="false" prefHeight="50.0"
-                                prefWidth="340.0" styleClass="signup-btn" text="Sign up"/>
-                        <Pane layoutX="29.0" layoutY="547.0" prefHeight="42.0" prefWidth="355.0"
+                        <Pane layoutX="29.0" layoutY="452.0" prefHeight="42.0" prefWidth="355.0"
                               styleClass="terms-wrap">
                             <children>
                                 <Label layoutX="14.0" layoutY="-1.0" prefHeight="44.0" prefWidth="327.0"
@@ -37,6 +38,8 @@
                                        text="By clicking “Sign up”, you agree to our terms of service,&#10;privacy policy and cookie policy"/>
                             </children>
                         </Pane>
+                        <Button fx:id="signupBtn" layoutX="37.0" layoutY="371.0" mnemonicParsing="false"
+                                prefHeight="50.0" prefWidth="340.0" styleClass="signup-btn" text="Sign up"/>
                     </children>
                 </Pane>
             </children>
