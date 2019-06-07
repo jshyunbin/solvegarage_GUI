@@ -4,6 +4,7 @@ import javax.crypto.Cipher;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
 /**
@@ -40,9 +41,10 @@ public class RSA {
 
     private static PublicKey generatePublicKey(byte[] encodedPublicKey) {
         try {
-            return KeyFactory.getInstance("RSA").generatePublic(new PKCS8EncodedKeySpec(encodedPublicKey));
+            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(encodedPublicKey));
         } catch (Exception e) {
             System.out.println("Error on generating public key");
+            e.printStackTrace();
         }
         return null;
     }
@@ -58,7 +60,7 @@ public class RSA {
         try {
             return KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(encodedPrivateKey));
         } catch (Exception e) {
-            System.out.println("Error on generating public key");
+            System.out.println("Error on generating private key");
         }
         return null;
     }

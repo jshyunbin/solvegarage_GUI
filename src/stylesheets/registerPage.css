@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Monda:400,700&display=swap');
+
 .register-container {
     -fx-background-color: #f2f2f2;
 }
@@ -9,4 +11,30 @@
     -fx-padding: 10px;
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+.title-wrap {
+    -fx-font-family: 'AvenirNext LT Pro Regular', sans-serif;
+    -fx-font-weight: 400;
+    -fx-font-size: 20px;
+}
+
+.signup-btn {
+    -fx-font-family: 'Monda', sans-serif;
+    -fx-font-weight: 700;
+    -fx-font-size: 30px;
+    -fx-text-transform: uppercase;
+    -fx-background-color: linear-gradient(to right, #ff6056, #ffa500);
+    -fx-background-radius: 20px;
+    -fx-text-fill: white;
+    -fx-padding: 0 20px;
+    -fx-width: 100%;
+    -fx-height: 50px;
+}
+
+.terms-wrap {
+    -fx-font-family: 'AvenirNext LT Pro Regular', sans-serif;
+    -fx-font-weight: 400;
+    -fx-font-size: 13px;
+    -fx-text-fill: gray;
 }

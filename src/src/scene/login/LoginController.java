@@ -2,17 +2,16 @@ package src.scene.login;
 
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import src.Utils.HttpConnect;
+import src.Utils.RSA;
+import src.Utils.SecureHttpConnection;
 import src.main.Main;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,27 +47,22 @@ public class LoginController implements Initializable {
     private void login() {
         id = usernameText.getText();
         password = passwordText.getText();
-        HttpConnect httpConnect = new HttpConnect();
-        String responseCode = "";
+        JsonObject object = null;
         try {
-            responseCode = httpConnect.sendLoginPost(id, password, "login");
-        } catch (IOException e) {
-            e.printStackTrace();
+            object = SecureHttpConnection.post(SecureHttpConnection.loginURL, "{'id':'" + id + "','pw':'" + password +
+                    "'}", Main.getServerPublicKey(), RSA.generateKeyPair());
+        } catch (Exception e) {
+            System.out.println("login failed...\ncheck server");
         }
-        if (responseCode.equals("timed out")) {
-            Main.closeStage("login");
-            return;
-        }
-        JsonParser parser = new JsonParser();
-        JsonObject root = parser.parse(responseCode).getAsJsonObject();
-        boolean success = root.get("success").getAsBoolean();
+
+        boolean success = object.get("success").getAsBoolean();
         if (success) {
             usernameText.clear();
             passwordText.clear();
             Main.closeStage("login");
-            Main.setToken(root.get("token").getAsString());
+            Main.setToken(object.get("token").getAsString());
         }else {
-            int code = root.get("code").getAsInt();
+            int code = object.get("code").getAsInt();
             if (code == 1) {
                 usernameText.clear();
                 passwordText.clear();

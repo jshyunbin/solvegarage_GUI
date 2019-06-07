@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import src.Utils.HttpConnect;
+import src.Utils.SecureHttpConnection;
 
 /**
  * the Main class takes care of the Stages
@@ -17,7 +17,9 @@ import src.Utils.HttpConnect;
 public class Main extends Application {
 
     private static Stage loginStage, registerStage;
-    private static String token, publicKey;
+    private static String token;
+    private static byte[] serverPublicKey;
+
 
     /**
      * sets token value
@@ -53,17 +55,17 @@ public class Main extends Application {
      * Tools for handling token and public key value
      */
 
-    public static String getPublicKey() {
-        return publicKey;
+    public static byte[] getServerPublicKey() {
+        return serverPublicKey;
     }
 
     /**
      * sets public key value
      *
-     * @param publicKey1 the public key value you desire to set
+     * @param serverPublicKey1 the public key value you desire to set
      */
-    public static void setPublicKey(String publicKey1) {
-        publicKey = publicKey1;
+    public static void setPublicKey(byte[] serverPublicKey1) {
+        serverPublicKey = serverPublicKey1;
     }
 
     @Override
@@ -88,7 +90,6 @@ public class Main extends Application {
         registerStage.setScene(new Scene(registerpage));
 
         token = null;
-        HttpConnect httpConnect = new HttpConnect();
-        httpConnect.getPublicKey();
+        serverPublicKey = SecureHttpConnection.getServerPublicKey();
     }
 }
