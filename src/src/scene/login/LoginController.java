@@ -52,15 +52,19 @@ public class LoginController implements Initializable {
             object = SecureHttpConnection.post(SecureHttpConnection.loginURL, "{'id':'" + id + "','pw':'" + password +
                     "'}", Main.getServerPublicKey(), RSA.generateKeyPair());
         } catch (Exception e) {
+            Main.errorScreen();
             System.out.println("login failed...\ncheck server");
         }
 
         boolean success = object.get("success").getAsBoolean();
+
+
         if (success) {
             usernameText.clear();
             passwordText.clear();
             Main.closeStage();
             Main.setToken(object.get("token").getAsString());
+
         }else {
             int code = object.get("code").getAsInt();
             if (code == 1) {

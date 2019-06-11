@@ -28,6 +28,7 @@
                                 <Label layoutX="14.0" layoutY="14.0" styleClass="texts" text="Username"/>
                                 <PasswordField fx:id="pwField" layoutX="11.0" layoutY="176.0" prefHeight="40.0"
                                                prefWidth="350.0" styleClass="textbox"/>
+                                <Label fx:id="warningText" layoutX="150.0" layoutY="19.0" styleClass="warning-text"/>
                             </children>
                         </Pane>
                         <Pane layoutX="29.0" layoutY="452.0" prefHeight="42.0" prefWidth="355.0"

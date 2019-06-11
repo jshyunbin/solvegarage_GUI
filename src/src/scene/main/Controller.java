@@ -21,24 +21,26 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
 
-    @FXML
-    static Pane leftBorder, userData;
     private static Parent user_defaultS, user_logged_inS;
     @FXML TextField searchfield;
     @FXML ScrollPane contentPane;
-
-    private String[] sceneName = {"discover", "categories", "post", "ranking"};
-    private MultiScreen contentScreen = new MultiScreen(sceneName);
-    private Parent discoverS, categoryS, postS, rankingS;
+    @FXML
+    Pane leftBorder, userData;
     @FXML
     Label solvegarage, discoverTab, categoriesTab, postTab, rankingTab;
+    private String[] sceneName = {"discover", "categories", "post", "ranking"};
+    private MultiScreen contentScreen = new MultiScreen(sceneName);
+    private String[] loginWrapName = {"default", "logged_in"};
+    private MultiScreen loginWrap = new MultiScreen(loginWrapName);
+    private Parent discoverS, categoryS, postS, rankingS;
 
     /**
      *
      */
-    public static void updateUserData() {
+    public void updateUserData() {
         userData.getChildren().removeAll();
-        userData.getChildren().add(user_logged_inS);
+        loginWrap.activate("logged_in");
+        userData.getChildren().add(loginWrap.currentScreen());
     }
 
 
@@ -57,10 +59,16 @@ public class Controller implements Initializable{
         } catch(IOException e) {
             System.out.println("No file named \"../../../FXMLs/rankingScene.fxml\"");
         }
-        userData = new Pane();
-        userData.getChildren().add(user_defaultS);
+
         contentScreen.addScreen("ranking", rankingS);
         contentPane.setContent(contentScreen.currentScreen());
+
+        loginWrap.addScreen("default", user_defaultS);
+        loginWrap.addScreen("logged_in", user_logged_inS);
+        loginWrap.activate("default");
+
+        userData.getChildren().add(loginWrap.currentScreen());
+
         solvegarage.setOnMouseClicked(e -> tabClick("discover"));
         discoverTab.setOnMouseClicked(e -> tabClick("discover"));
         categoriesTab.setOnMouseClicked(e -> tabClick("categories"));

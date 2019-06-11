@@ -12,6 +12,6 @@
     <children>
         <Label fx:id="loginLabel" layoutX="26.0" layoutY="18.0" text="Log In"/>
         <Button fx:id="signupBtn" layoutX="115.0" layoutY="14.0" mnemonicParsing="false" styleClass="signup-btn"
-                text="Sign up"/>
+                stylesheets="@../stylesheets/userData_default.css" text="Sign up"/>
     </children>
 </AnchorPane>

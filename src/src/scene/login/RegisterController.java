@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import src.Utils.RSA;
@@ -21,6 +22,8 @@ public class RegisterController implements Initializable {
     PasswordField pwField;
     @FXML
     Button signupBtn;
+    @FXML
+    Label warningText;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -42,8 +45,9 @@ public class RegisterController implements Initializable {
         if (success) {
             Main.setToken(object.get("token").getAsString());
             Main.closeStage();
-        } else {
-            System.out.println("failed on register");
+        } else if (object.get("code").getAsString().equals("1")) {
+            warningText.setText("This username has already been taken by another user.");
+            System.out.println("username already taken by another user");
         }
     }
 }

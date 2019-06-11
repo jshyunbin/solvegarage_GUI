@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Monda:400,700&display=swap');
+
+.error-text {
+    -fx-font-family: "AvenirNext LT Pro Regular", sans-serif;
+    -fx-font-size: 29px;
+}
+
+.error-text-big {
+    -fx-font-family: Monda, sans-serif;
+    -fx-font-weight: 700;
+    -fx-font-size: 55px;
+    -fx-text-fill: linear-gradient(to right, #ffde33, #ffbc33);
+}

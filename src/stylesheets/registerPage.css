@@ -29,6 +29,12 @@
 
 }
 
+.warning-text {
+    -fx-font-family: 'AvenirNext LT Pro Regular', sans-serif;
+    -fx-font-size: 10px;
+    -fx-text-fill: red;
+}
+
 .textbox {
     -fx-background-color: #a9a9a9, white, white;
     -fx-background-radius: 0;

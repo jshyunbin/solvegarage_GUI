@@ -6,7 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import src.Utils.SecureHttpConnection;
-import src.scene.main.Controller;
+
+import java.net.ConnectException;
 
 /**
  * the Main class takes care of the Stages
@@ -19,9 +20,9 @@ public class Main extends Application {
 
     public static String id;
     private static String token;
-    private static Stage loginStage;
+    private static Stage loginStage, errorStage;
     private static byte[] serverPublicKey;
-    private static Scene loginScene, registerScene;
+    private static Scene loginScene, registerScene, errorScene;
 
 
     /**
@@ -62,7 +63,11 @@ public class Main extends Application {
      */
     public static void closeStage() {
         loginStage.close();
-        Controller.updateUserData();
+//        Controller.updateUserData();
+    }
+
+    public static void errorScreen() {
+        errorStage.show();
     }
 
 
@@ -99,6 +104,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("../../FXMLs/mainScreen.fxml"));
         Parent loginPage = FXMLLoader.load(getClass().getResource("../../FXMLs/loginPage.fxml"));
         Parent registerPage = FXMLLoader.load(getClass().getResource("../../FXMLs/registerPage.fxml"));
+        Parent errorPage = FXMLLoader.load(getClass().getResource("../../FXMLs/errorScreen.fxml"));
 
         primaryStage.setTitle("solvegarage");
         primaryStage.setScene(new Scene(root, 1000, 800));
@@ -106,11 +112,20 @@ public class Main extends Application {
 
         loginScene = new Scene(loginPage);
         registerScene = new Scene(registerPage);
+        errorScene = new Scene(errorPage);
 
         loginStage = new Stage();
         loginStage.setResizable(false);
 
+        errorStage = new Stage();
+        errorStage.setResizable(false);
+        errorStage.setScene(errorScene);
+
         token = null;
-        serverPublicKey = SecureHttpConnection.getServerPublicKey();
+        try {
+            serverPublicKey = SecureHttpConnection.getServerPublicKey();
+        } catch (ConnectException e) {
+            errorScreen();
+        }
     }
 }
