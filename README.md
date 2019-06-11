@@ -1,4 +1,4 @@
-#SolveGarage GUI
+# SolveGarage GUI
 This repository contains the SolveGarage GUI program code.
 ## Directory Hierarchy
 ```
