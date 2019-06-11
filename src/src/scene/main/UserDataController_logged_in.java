@@ -16,9 +16,11 @@ public class UserDataController_logged_in implements Initializable {
     @FXML
     Label userName;
 
+    public void update() {
+        userName.setText(Main.id);
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        userName.setText(Main.id);
-
     }
 }

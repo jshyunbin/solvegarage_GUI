@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
 
-    private static Parent user_defaultS, user_logged_inS;
+    private FXMLLoader user_logged_inS, user_defaultS;
     @FXML TextField searchfield;
     @FXML ScrollPane contentPane;
     @FXML
@@ -38,8 +38,11 @@ public class Controller implements Initializable{
      *
      */
     public void updateUserData() {
-        userData.getChildren().removeAll();
+        userData.getChildren().clear();
         loginWrap.activate("logged_in");
+        UserDataController_logged_in controller_logged_in =
+                user_logged_inS.getController();
+        controller_logged_in.update();
         userData.getChildren().add(loginWrap.currentScreen());
     }
 
@@ -54,8 +57,8 @@ public class Controller implements Initializable{
     public void initialize(URL arg0, ResourceBundle arg1) {
         try{
             rankingS = FXMLLoader.load(getClass().getResource("../../../FXMLs/rankingScene.fxml"));
-            user_defaultS = FXMLLoader.load(getClass().getResource("../../../FXMLs/userData_default.fxml"));
-            user_logged_inS = FXMLLoader.load(getClass().getResource("../../../FXMLs/userData_logged_in.fxml"));
+            user_defaultS = new FXMLLoader(getClass().getResource("../../../FXMLs/userData_default.fxml"));
+            user_logged_inS = new FXMLLoader(getClass().getResource("../../../FXMLs/userData_logged_in.fxml"));
         } catch(IOException e) {
             System.out.println("No file named \"../../../FXMLs/rankingScene.fxml\"");
         }
@@ -63,8 +66,12 @@ public class Controller implements Initializable{
         contentScreen.addScreen("ranking", rankingS);
         contentPane.setContent(contentScreen.currentScreen());
 
-        loginWrap.addScreen("default", user_defaultS);
-        loginWrap.addScreen("logged_in", user_logged_inS);
+        try {
+            loginWrap.addScreen("default", user_defaultS.load());
+            loginWrap.addScreen("logged_in", user_logged_inS.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         loginWrap.activate("default");
 
         userData.getChildren().add(loginWrap.currentScreen());

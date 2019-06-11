@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import src.Utils.RSA;
 import src.Utils.SecureHttpConnection;
 import src.main.Main;
+import src.scene.main.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -64,7 +65,10 @@ public class LoginController implements Initializable {
             passwordText.clear();
             Main.closeStage();
             Main.setToken(object.get("token").getAsString());
+            Main.id = id;
 
+            Controller controller = Main.root.getController();
+            controller.updateUserData();
         }else {
             int code = object.get("code").getAsInt();
             if (code == 1) {

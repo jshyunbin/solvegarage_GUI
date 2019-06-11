@@ -10,10 +10,15 @@ import javafx.scene.control.TextField;
 import src.Utils.RSA;
 import src.Utils.SecureHttpConnection;
 import src.main.Main;
+import src.scene.main.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * RegisterController class takes charge of the register page.
+ * everything
+ */
 public class RegisterController implements Initializable {
 
     @FXML
@@ -45,6 +50,10 @@ public class RegisterController implements Initializable {
         if (success) {
             Main.setToken(object.get("token").getAsString());
             Main.closeStage();
+            Main.id = id;
+
+            Controller controller = Main.root.getController();
+            controller.updateUserData();
         } else if (object.get("code").getAsString().equals("1")) {
             warningText.setText("This username has already been taken by another user.");
             System.out.println("username already taken by another user");

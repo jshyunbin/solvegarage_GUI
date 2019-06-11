@@ -23,6 +23,7 @@ public class Main extends Application {
     private static Stage loginStage, errorStage;
     private static byte[] serverPublicKey;
     private static Scene loginScene, registerScene, errorScene;
+    public static FXMLLoader root;
 
 
     /**
@@ -101,13 +102,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         // loading fxml files
-        Parent root = FXMLLoader.load(getClass().getResource("../../FXMLs/mainScreen.fxml"));
+        root = new FXMLLoader(getClass().getResource("../../FXMLs/mainScreen.fxml"));
         Parent loginPage = FXMLLoader.load(getClass().getResource("../../FXMLs/loginPage.fxml"));
         Parent registerPage = FXMLLoader.load(getClass().getResource("../../FXMLs/registerPage.fxml"));
         Parent errorPage = FXMLLoader.load(getClass().getResource("../../FXMLs/errorScreen.fxml"));
 
         primaryStage.setTitle("solvegarage");
-        primaryStage.setScene(new Scene(root, 1000, 800));
+        primaryStage.setScene(new Scene(root.load(), 1000, 800));
         primaryStage.show();
 
         loginScene = new Scene(loginPage);
