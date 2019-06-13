@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="200.0" prefWidth="784.0"
+            xmlns="http://javafx.com/javafx/8.0.171" fx:controller="src.scene.home.ProblemListController">
+    <children>
+        <Pane layoutX="17.0" layoutY="10.0" prefHeight="180.0" prefWidth="750.0"
+              style="-fx-background-radius: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); -fx-background-color: white;">
+            <children>
+                <Label fx:id="title" layoutX="14.0" layoutY="14.0" text="Problem Title">
+                    <font>
+                        <Font size="39.0"/>
+                    </font>
+                </Label>
+                <Separator layoutX="15.0" layoutY="60.0" prefHeight="15.0" prefWidth="721.0"/>
+                <Label fx:id="description" alignment="TOP_LEFT" layoutX="15.0" layoutY="79.0" prefHeight="66.0"
+                       prefWidth="721.0"
+                       text="problem description&#10;SOLVEGARAGE is a problem-sharing community that enables users to post their own problems and solve other user's problems.&#10;"
+                       wrapText="true">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="tags" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="66.0" layoutY="153.0"
+                       prefHeight="18.0" prefWidth="660.0" text="#tags #put #your #tags #here" textAlignment="RIGHT">
+                </Label>
+                <Pane layoutX="566.0" layoutY="5.0" prefHeight="58.0" prefWidth="160.0">
+                    <children>
+                        <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../resources/materialIcons/round-thumb_up-black-18/2x/round_thumb_up_black_18dp.png"/>
+                            </image>
+                        </ImageView>
+                        <Label fx:id="recommends" layoutX="69.0" layoutY="16.0" style="-fx-font-size: 22px;"
+                               text="328"/>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

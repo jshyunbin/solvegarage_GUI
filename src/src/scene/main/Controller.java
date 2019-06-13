@@ -3,7 +3,6 @@ package src.scene.main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -27,12 +26,12 @@ public class Controller implements Initializable{
     @FXML
     Pane leftBorder, userData;
     @FXML
-    Label solvegarage, discoverTab, categoriesTab, postTab, rankingTab;
-    private String[] sceneName = {"discover", "categories", "post", "ranking"};
+    Label solvegarage, homeTab, categoriesTab, postTab, rankingTab;
+    private String[] sceneName = {"home", "categories", "post", "ranking"};
     private MultiScreen contentScreen = new MultiScreen(sceneName);
     private String[] loginWrapName = {"default", "logged_in"};
     private MultiScreen loginWrap = new MultiScreen(loginWrapName);
-    private Parent discoverS, categoryS, postS, rankingS;
+    private FXMLLoader homeS, categoryS, postS, rankingS;
 
     /**
      *
@@ -60,15 +59,17 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        try{
-            rankingS = FXMLLoader.load(getClass().getResource("../../../FXMLs/rankingScene.fxml"));
-            user_defaultS = new FXMLLoader(getClass().getResource("../../../FXMLs/userData_default.fxml"));
-            user_logged_inS = new FXMLLoader(getClass().getResource("../../../FXMLs/userData_logged_in.fxml"));
-        } catch(IOException e) {
-            System.out.println("No file named \"../../../FXMLs/rankingScene.fxml\"");
-        }
+        homeS = new FXMLLoader(getClass().getResource("../../../FXMLs/homeScene.fxml"));
+        rankingS = new FXMLLoader(getClass().getResource("../../../FXMLs/rankingScene.fxml"));
+        user_defaultS = new FXMLLoader(getClass().getResource("../../../FXMLs/userData_default.fxml"));
+        user_logged_inS = new FXMLLoader(getClass().getResource("../../../FXMLs/userData_logged_in.fxml"));
 
-        contentScreen.addScreen("ranking", rankingS);
+        try {
+            contentScreen.addScreen("home", homeS.load());
+            contentScreen.addScreen("ranking", rankingS.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         contentPane.setContent(contentScreen.currentScreen());
 
         try {
@@ -81,8 +82,8 @@ public class Controller implements Initializable{
 
         userData.getChildren().add(loginWrap.currentScreen());
 
-        solvegarage.setOnMouseClicked(e -> tabClick("discover"));
-        discoverTab.setOnMouseClicked(e -> tabClick("discover"));
+        solvegarage.setOnMouseClicked(e -> tabClick("home"));
+        homeTab.setOnMouseClicked(e -> tabClick("home"));
         categoriesTab.setOnMouseClicked(e -> tabClick("categories"));
         postTab.setOnMouseClicked(e -> tabClick("post"));
         rankingTab.setOnMouseClicked(e -> tabClick("ranking"));

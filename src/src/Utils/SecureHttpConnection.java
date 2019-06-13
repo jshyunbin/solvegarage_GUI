@@ -19,7 +19,7 @@ public class SecureHttpConnection {
 
     public static String deleteAccountURL = "http://buttercrab.iptime.org:3080/delete-account", registerAccountURL =
             "http://buttercrab.iptime.org:3080/register", loginURL = "http://buttercrab.iptime.org:3080/login",
-            logoutURL = "http://buttercrab.iptime.org:3080/logout";
+            logoutURL = "http://buttercrab.iptime.org:3080/logout", problemsURL = "";
 
     public static byte[] getServerPublicKey() throws IOException {
         URL url = new URL("http://buttercrab.iptime.org:3080/get-key");
@@ -64,5 +64,14 @@ public class SecureHttpConnection {
         if (!RSA.verify(json, sign, serverPublicKey)) return null;
         JsonParser parser = new JsonParser();
         return parser.parse(json).getAsJsonObject();
+    }
+
+    public static JsonObject get(String url) throws Exception {
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        con.setRequestMethod("GET");
+        BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        JsonParser parser = new JsonParser();
+        return parser.parse(br.readLine()).getAsJsonObject();
     }
 }

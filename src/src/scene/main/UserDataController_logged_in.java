@@ -31,7 +31,7 @@ public class UserDataController_logged_in implements Initializable {
     private void logout() {
         JsonObject object = null;
         try {
-            object = SecureHttpConnection.post(SecureHttpConnection.loginURL,
+            object = SecureHttpConnection.post(SecureHttpConnection.logoutURL,
                     "{'id':'" + Main.id + "','token':'" + Main.getToken() + "'}", Main.getServerPublicKey(),
                     RSA.generateKeyPair());
         } catch (Exception e) {
