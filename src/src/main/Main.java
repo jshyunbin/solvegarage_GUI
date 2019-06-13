@@ -35,6 +35,10 @@ public class Main extends Application {
         token = token1;
     }
 
+    public static String getToken() {
+        return token;
+    }
+
 
     public static void main(String[] args) {
         launch(args);

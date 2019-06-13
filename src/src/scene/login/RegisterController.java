@@ -53,7 +53,7 @@ public class RegisterController implements Initializable {
             Main.id = id;
 
             Controller controller = Main.root.getController();
-            controller.updateUserData();
+            controller.updateUserData("logged_in");
         } else if (object.get("code").getAsString().equals("1")) {
             warningText.setText("This username has already been taken by another user.");
             System.out.println("username already taken by another user");

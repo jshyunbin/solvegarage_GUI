@@ -37,13 +37,18 @@ public class Controller implements Initializable{
     /**
      *
      */
-    public void updateUserData() {
+    public void updateUserData(String type) {
         userData.getChildren().clear();
-        loginWrap.activate("logged_in");
-        UserDataController_logged_in controller_logged_in =
-                user_logged_inS.getController();
-        controller_logged_in.update();
-        userData.getChildren().add(loginWrap.currentScreen());
+        if (type.equals("logged_in")) {
+            loginWrap.activate("logged_in");
+            UserDataController_logged_in controller_logged_in = user_logged_inS.getController();
+            controller_logged_in.update();
+            userData.getChildren().add(loginWrap.currentScreen());
+        }
+        else if (type.equals("default")) {
+            loginWrap.activate("default");
+            userData.getChildren().add(loginWrap.currentScreen());
+        }
     }
 
 

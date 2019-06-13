@@ -55,6 +55,7 @@ public class LoginController implements Initializable {
         } catch (Exception e) {
             Main.errorScreen();
             System.out.println("login failed...\ncheck server");
+            return;
         }
 
         boolean success = object.get("success").getAsBoolean();
@@ -68,7 +69,7 @@ public class LoginController implements Initializable {
             Main.id = id;
 
             Controller controller = Main.root.getController();
-            controller.updateUserData();
+            controller.updateUserData("logged_in");
         }else {
             int code = object.get("code").getAsInt();
             if (code == 1) {

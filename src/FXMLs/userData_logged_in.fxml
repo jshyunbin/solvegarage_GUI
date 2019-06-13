@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import java.net.URL?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="50.0" prefWidth="200.0" styleClass="container"
-            xmlns="http://javafx.com/javafx/8.0.171" fx:controller="src.scene.main.UserDataController_logged_in">
+
+<AnchorPane prefHeight="50.0" prefWidth="200.0" styleClass="container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.scene.main.UserDataController_logged_in">
     <stylesheets>
-        <URL value="@../stylesheets/userData_logged_in.css"/>
+        <URL value="@../stylesheets/userData_logged_in.css" />
     </stylesheets>
     <children>
         <ImageView fx:id="userImg" fitHeight="50.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../resources/assets/user.png"/>
+                <Image url="@../resources/assets/user.png" />
             </image>
         </ImageView>
-        <Label fx:id="userName" layoutX="67.0" layoutY="16.0" text="default"/>
+        <Label fx:id="userName" layoutX="67.0" layoutY="16.0" text="default" />
+      <ImageView fx:id="logoutBtn" fitHeight="42.0" fitWidth="48.0" layoutX="144.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/materialIcons/round-exit_to_app-black-18/2x/round_exit_to_app_black_18dp.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
