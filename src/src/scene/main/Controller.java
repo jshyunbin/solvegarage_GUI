@@ -1,5 +1,6 @@
 package src.scene.main;
 
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +9,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import src.Utils.MultiScreen;
+import src.scene.home.HomeController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -88,5 +90,12 @@ public class Controller implements Initializable{
         postTab.setOnMouseClicked(e -> tabClick("post"));
         rankingTab.setOnMouseClicked(e -> tabClick("ranking"));
 
+        HomeController homeController = homeS.getController();
+        contentPane.vvalueProperty().addListener((ObservableValue<? extends Number> ov,
+                                                  Number old_val, Number new_val) -> {
+            if ((double) new_val >= homeController.getProblemSize() * 200.0 - 800) {
+                homeController.updateProblems();
+            }
+        });
     }
 }
