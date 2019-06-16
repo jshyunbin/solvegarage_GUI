@@ -42,7 +42,7 @@
             <Pane fx:id="leftBorder" prefHeight="737.0" prefWidth="148.0">
                <VBox alignment="TOP_RIGHT" prefHeight="722.0" prefWidth="146.0">
                   <children>
-                     <Label fx:id="discoverTab" styleClass="discoverTab" text="Discover">
+                      <Label fx:id="homeTab" styleClass="discoverTab" text="Discover">
                         <VBox.margin>
                            <Insets top="5.0" />
                         </VBox.margin>

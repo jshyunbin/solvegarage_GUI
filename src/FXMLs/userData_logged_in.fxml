@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import java.net.URL?>
 <AnchorPane prefHeight="50.0" prefWidth="200.0" styleClass="container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.scene.main.UserDataController_logged_in">
     <stylesheets>
         <URL value="@../stylesheets/userData_logged_in.css" />
     </stylesheets>
     <children>
-        <ImageView fx:id="userImg" fitHeight="50.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="userImg" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../resources/assets/user.png" />
             </image>

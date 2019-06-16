@@ -19,7 +19,8 @@ public class SecureHttpConnection {
 
     public static String deleteAccountURL = "http://buttercrab.iptime.org:3080/delete-account", registerAccountURL =
             "http://buttercrab.iptime.org:3080/register", loginURL = "http://buttercrab.iptime.org:3080/login",
-            logoutURL = "http://buttercrab.iptime.org:3080/logout", problemsURL = "";
+            logoutURL = "http://buttercrab.iptime.org:3080/logout", problemsURL = "", profileImgURL = "http" +
+            "://buttercrab.iptime.org:3080/profile-image";
 
     public static byte[] getServerPublicKey() throws IOException {
         URL url = new URL("http://buttercrab.iptime.org:3080/get-key");
@@ -29,7 +30,16 @@ public class SecureHttpConnection {
         return Base64.getDecoder().decode(br.readLine());
     }
 
-
+    /**
+     * a public static method for POST HTTP requests
+     *
+     * @param url             the url you want to send POST
+     * @param data            the data you want to send to the desired url
+     * @param serverPublicKey the server public key
+     * @param clientKey       the client key
+     * @return returns the POST request result as a JsonObject
+     * @throws Exception exception occurs when server is down
+     */
     public static JsonObject post(String url, String data, byte[] serverPublicKey, KeyPair clientKey) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -66,8 +76,16 @@ public class SecureHttpConnection {
         return parser.parse(json).getAsJsonObject();
     }
 
-    public static JsonObject get(String url) throws Exception {
-        URL obj = new URL(url);
+    /**
+     * A public static method for GET HTTP requests
+     *
+     * @param url       the url you want to GET from
+     * @param parameter the parameters you enter to send GET requests
+     * @return returns the GET result as a JsonObject
+     * @throws Exception exception on HttpURLConnection openConnection method => Exception occurs when server is down
+     */
+    public static JsonObject get(String url, String parameter) throws Exception {
+        URL obj = new URL(url+"?"+parameter);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
