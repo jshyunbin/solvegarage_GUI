@@ -13,7 +13,8 @@ import java.security.KeyPair;
 import java.util.Base64;
 
 /**
- *
+ * A public class used for sending Http requests such as POST or GET.
+ * Supports several
  */
 public class SecureHttpConnection {
 
@@ -22,6 +23,15 @@ public class SecureHttpConnection {
             logoutURL = "http://buttercrab.iptime.org:3080/logout", problemsURL = "", profileImgURL = "http" +
             "://buttercrab.iptime.org:3080/profile-image";
 
+
+    /**
+     * A public static method for getting server public key
+     * <p>
+     * Gets the server public key by sending GET request to the server
+     *
+     * @return returns the server public key as byte arrays
+     * @throws IOException exception on con.getInputStream() method. Occurs when server is down.
+     */
     public static byte[] getServerPublicKey() throws IOException {
         URL url = new URL("http://buttercrab.iptime.org:3080/get-key");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
