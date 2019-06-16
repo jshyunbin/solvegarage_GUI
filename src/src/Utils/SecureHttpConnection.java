@@ -20,8 +20,8 @@ public class SecureHttpConnection {
 
     public static String deleteAccountURL = "http://buttercrab.iptime.org:3080/delete-account", registerAccountURL =
             "http://buttercrab.iptime.org:3080/register", loginURL = "http://buttercrab.iptime.org:3080/login",
-            logoutURL = "http://buttercrab.iptime.org:3080/logout", problemsURL = "", profileImgURL = "http" +
-            "://buttercrab.iptime.org:3080/profile-image";
+            logoutURL = "http://buttercrab.iptime.org:3080/logout", problemsURL = "",
+            profileImgURL = "http://buttercrab.iptime.org:3080/profile-image";
 
 
     /**

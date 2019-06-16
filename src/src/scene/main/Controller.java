@@ -43,7 +43,11 @@ public class Controller implements Initializable{
         if (type.equals("logged_in")) {
             loginWrap.activate("logged_in");
             UserDataController_logged_in controller_logged_in = user_logged_inS.getController();
-            controller_logged_in.update();
+            try {
+                controller_logged_in.update();
+            } catch (Exception e) {
+                System.out.println("Error on server");
+            }
             userData.getChildren().add(loginWrap.currentScreen());
         }
         else if (type.equals("default")) {
