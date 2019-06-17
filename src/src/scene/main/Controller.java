@@ -109,8 +109,7 @@ public class Controller implements Initializable{
                                                   Number old_val, Number new_val) -> {
             if ((double) new_val >= 0.9 && contentScreen.getName().equals("home")) {
                 System.out.println("scrolled to bottom");
-                ((VBox) contentScreen.currentScreen()).setMaxHeight(((VBox) contentScreen.currentScreen()).getMaxHeight() + 200 * 10);
-                contentPane.setContent(contentScreen.currentScreen());
+                ((VBox) contentScreen.currentScreen()).setPrefHeight(((VBox) contentScreen.currentScreen()).getPrefHeight() + 200 * 10);
                 homeController.updateProblems();
             }
         });
