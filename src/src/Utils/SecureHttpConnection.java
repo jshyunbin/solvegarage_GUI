@@ -20,8 +20,9 @@ public class SecureHttpConnection {
 
     public static String deleteAccountURL = "http://buttercrab.iptime.org:3080/delete-account", registerAccountURL =
             "http://buttercrab.iptime.org:3080/register", loginURL = "http://buttercrab.iptime.org:3080/login",
-            logoutURL = "http://buttercrab.iptime.org:3080/logout", problemsURL = "",
-            profileImgURL = "http://buttercrab.iptime.org:3080/profile-image";
+            logoutURL = "http://buttercrab.iptime.org:3080/logout", problemsURL =
+            "http://buttercrab.iptime.org:3080/problem/", profileImgURL =
+            "http://buttercrab.iptime.org:3080/profile-image";
 
 
     /**
@@ -95,7 +96,7 @@ public class SecureHttpConnection {
      * @throws Exception exception on HttpURLConnection openConnection method => Exception occurs when server is down
      */
     public static JsonObject get(String url, String parameter) throws Exception {
-        URL obj = new URL(url+"?"+parameter);
+        URL obj = new URL(url + parameter);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));

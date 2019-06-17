@@ -28,7 +28,7 @@ public class UserDataController_logged_in implements Initializable {
     public void update() throws Exception {
         userName.setText(Main.id);
 
-        JsonObject object = SecureHttpConnection.get(SecureHttpConnection.profileImgURL, "id=" + Main.id);
+        JsonObject object = SecureHttpConnection.get(SecureHttpConnection.profileImgURL, "?id=" + Main.id);
 //        File outputfile = new File("../../../resources/caches/profile_"+Main.id+".png");
         boolean success = object.get("success").getAsBoolean();
         if (success) {

@@ -12,16 +12,19 @@ public class ProblemListController implements Initializable {
     @FXML
     Label title, description, recommends, tags;
 
+    String date, author;
 
     @Override
     public void initialize(URL args0, ResourceBundle args1) {
 
     }
 
-    public void setProblem(String title, String description, int recommends, String tags) {
+    public void setProblem(String title, String description, int recommends, String tags, String date, String author) {
         this.title.setText(title);
         this.description.setText(description);
         this.recommends.setText(((Integer) recommends).toString());
         this.tags.setText(tags);
+        this.date = date;
+        this.author = author;
     }
 }
