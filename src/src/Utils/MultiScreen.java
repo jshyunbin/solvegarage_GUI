@@ -1,13 +1,14 @@
 package src.Utils;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
-import javafx.scene.layout.Pane;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 
 import java.util.HashMap;
 
 /**
- *  Utility class for controlling multiple scenes
+ *  Utility class for controlling multiple scenes.
+ *  saves multiple panes as a HashMap and activates the pane whenever you want.
  *
  */
 

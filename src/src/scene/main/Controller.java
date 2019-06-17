@@ -66,16 +66,19 @@ public class Controller implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         homeS = new FXMLLoader(getClass().getResource("../../../FXMLs/homeScene.fxml"));
+        postS = new FXMLLoader(getClass().getResource("../../../FXMLs/postScene.fxml"));
         rankingS = new FXMLLoader(getClass().getResource("../../../FXMLs/rankingScene.fxml"));
         user_defaultS = new FXMLLoader(getClass().getResource("../../../FXMLs/userData_default.fxml"));
         user_logged_inS = new FXMLLoader(getClass().getResource("../../../FXMLs/userData_logged_in.fxml"));
 
         try {
             contentScreen.addScreen("home", homeS.load());
+            contentScreen.addScreen("post", postS.load());
             contentScreen.addScreen("ranking", rankingS.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        contentScreen.activate("home");
         contentPane.setContent(contentScreen.currentScreen());
 
         try {

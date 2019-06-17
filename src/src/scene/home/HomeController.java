@@ -27,7 +27,8 @@ public class HomeController implements Initializable {
         for (int i = 0; i < 10; i++) {
             //JsonObject object = SecureHttpConnection.get(SecureHttpConnection.problemsURL, );
             FXMLLoader problems = new FXMLLoader(getClass().getResource("../../../FXMLs/problemList.fxml"));
-            ProblemListController problemListController = problems.getController();
+            ProblemListController problemListController = problems.getController(); //used to set title and
+            // description about the problem
             try {
                 problemSet.getChildren().add(problems.load());
             } catch (IOException e) {

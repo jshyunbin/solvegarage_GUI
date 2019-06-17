@@ -26,6 +26,48 @@ public class Main extends Application {
     public static FXMLLoader root;
 
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    /**
+     * The start method of the Main class.
+     *
+     * @param primaryStage primary stage
+     * @throws Exception exception on loading fxml files
+     */
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        // loading fxml files
+        root = new FXMLLoader(getClass().getResource("../../FXMLs/mainScreen.fxml"));
+        Parent loginPage = FXMLLoader.load(getClass().getResource("../../FXMLs/loginPage.fxml"));
+        Parent registerPage = FXMLLoader.load(getClass().getResource("../../FXMLs/registerPage.fxml"));
+        Parent errorPage = FXMLLoader.load(getClass().getResource("../../FXMLs/errorScreen.fxml"));
+
+        primaryStage.setTitle("solvegarage");
+        primaryStage.setScene(new Scene(root.load(), 1000, 800));
+        primaryStage.show();
+
+        loginScene = new Scene(loginPage);
+        registerScene = new Scene(registerPage);
+        errorScene = new Scene(errorPage);
+
+        loginStage = new Stage();
+        loginStage.setResizable(false);
+
+        errorStage = new Stage();
+        errorStage.setResizable(false);
+        errorStage.setScene(errorScene);
+
+        token = null;
+        try {
+            serverPublicKey = SecureHttpConnection.getServerPublicKey();
+        } catch (ConnectException e) {
+            errorScreen();
+        }
+    }
+
+
     /**
      * sets token value
      *
@@ -40,9 +82,6 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 
 
     /**
@@ -96,41 +135,4 @@ public class Main extends Application {
         serverPublicKey = serverPublicKey1;
     }
 
-
-    /**
-     * The start method of the Main class.
-     *
-     * @param primaryStage primary stage
-     * @throws Exception exception on loading fxml files
-     */
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        // loading fxml files
-        root = new FXMLLoader(getClass().getResource("../../FXMLs/mainScreen.fxml"));
-        Parent loginPage = FXMLLoader.load(getClass().getResource("../../FXMLs/loginPage.fxml"));
-        Parent registerPage = FXMLLoader.load(getClass().getResource("../../FXMLs/registerPage.fxml"));
-        Parent errorPage = FXMLLoader.load(getClass().getResource("../../FXMLs/errorScreen.fxml"));
-
-        primaryStage.setTitle("solvegarage");
-        primaryStage.setScene(new Scene(root.load(), 1000, 800));
-        primaryStage.show();
-
-        loginScene = new Scene(loginPage);
-        registerScene = new Scene(registerPage);
-        errorScene = new Scene(errorPage);
-
-        loginStage = new Stage();
-        loginStage.setResizable(false);
-
-        errorStage = new Stage();
-        errorStage.setResizable(false);
-        errorStage.setScene(errorScene);
-
-        token = null;
-        try {
-            serverPublicKey = SecureHttpConnection.getServerPublicKey();
-        } catch (ConnectException e) {
-            errorScreen();
-        }
-    }
 }
