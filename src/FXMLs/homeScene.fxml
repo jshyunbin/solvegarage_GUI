@@ -4,5 +4,5 @@
 <?import javafx.scene.layout.VBox?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="problemSet" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="6000.0" prefWidth="784.0"
+      minWidth="-Infinity" prefHeight="1800.0" prefWidth="784.0"
       xmlns="http://javafx.com/javafx/8.0.171" fx:controller="src.scene.home.HomeController"/>

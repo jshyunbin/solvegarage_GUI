@@ -32,19 +32,14 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        signupText.setOnMouseClicked(e -> signup());
         loginBtn.setOnMouseClicked(e -> login());
         signupText.setOnMouseClicked(e -> Main.openRegister());
     }
 
     /**
-     *  Activates when signup text is clicked.
-     *  changes src.scene to signup src.scene
+     * Activated when login button is clicked. Sends a POST request to the server with login information.
+     *
      */
-    private void signup() {
-
-    }
-
     private void login() {
         String id = usernameText.getText();
         String password = passwordText.getText();

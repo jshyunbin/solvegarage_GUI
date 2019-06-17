@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import src.Utils.MultiScreen;
 import src.scene.home.HomeController;
 
@@ -36,6 +37,8 @@ public class Controller implements Initializable{
     private FXMLLoader homeS, categoryS, postS, rankingS;
 
     /**
+     * Updates user data (such as username and user profile image).
+     * Runs when login of register process is finished.
      *
      */
     public void updateUserData(String type) {
@@ -56,7 +59,11 @@ public class Controller implements Initializable{
         }
     }
 
-
+    /**
+     * Runs when tab is clicked. Switches the scene to the desired scene.
+     *
+     * @param sceneName the scene name clicked
+     */
     private void tabClick(String sceneName) {
         System.out.println(sceneName);
         contentScreen.activate(sceneName);
@@ -100,7 +107,10 @@ public class Controller implements Initializable{
         HomeController homeController = homeS.getController();
         contentPane.vvalueProperty().addListener((ObservableValue<? extends Number> ov,
                                                   Number old_val, Number new_val) -> {
-            if ((double) new_val >= homeController.getProblemSize() * 200.0 - 800) {
+            if ((double) new_val >= 0.9 && contentScreen.getName().equals("home")) {
+                System.out.println("scrolled to bottom");
+                ((VBox) contentScreen.currentScreen()).setMaxHeight(((VBox) contentScreen.currentScreen()).getMaxHeight() + 200 * 10);
+                contentPane.setContent(contentScreen.currentScreen());
                 homeController.updateProblems();
             }
         });
