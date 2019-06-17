@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="820.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171"
+      fx:controller="src.scene.home.ProblemController">
+    <children>
+        <Label fx:id="title" alignment="BOTTOM_LEFT" prefHeight="155.0" prefWidth="283.0" text="Problem Title"
+               wrapText="true">
+            <font>
+                <Font name="AvenirNextLTPro-Cn" size="61.0"/>
+            </font>
+        </Label>
+        <Separator prefWidth="200.0"/>
+        <Label fx:id="date" alignment="TOP_RIGHT" prefHeight="29.0" prefWidth="720.0" text="Upload date: 00-00-00">
+            <font>
+                <Font name="AvenirNextLTPro-Regular" size="19.0"/>
+            </font>
+        </Label>
+        <Label fx:id="author" alignment="TOP_RIGHT" prefHeight="29.0" prefWidth="720.0" text="author: test">
+            <font>
+                <Font name="AvenirNextLTPro-Regular" size="19.0"/>
+            </font>
+        </Label>
+        <Label fx:id="description" alignment="TOP_LEFT" prefHeight="166.0" prefWidth="720.0"
+               text="Problem description.&#10;This SolveGarage GUI Program is a program for posting, discovering problems on solvegarage. It is made by Joshua Hyunbin Lee and its development was...&#10;"
+               wrapText="true">
+            <font>
+                <Font name="AvenirNextLTPro-Regular" size="19.0"/>
+            </font>
+        </Label>
+        <Separator prefWidth="200.0"/>
+        <TextArea fx:id="answer" prefHeight="344.0" prefWidth="760.0" promptText="Show me your answer!">
+            <VBox.margin>
+                <Insets top="10.0"/>
+            </VBox.margin>
+        </TextArea>
+        <Button fx:id="submitBtn" mnemonicParsing="false"
+                style="-fx-background-color: lightgreen; -fx-background-radius: 10px;" text="SUBMIT">
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <VBox.margin>
+                <Insets left="600.0" top="10.0"/>
+            </VBox.margin>
+        </Button>
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0"/>
+    </padding>
+</VBox>
