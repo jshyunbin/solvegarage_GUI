@@ -92,7 +92,7 @@ public class SecureHttpConnection {
      * @param url       the url you want to GET from
      * @param parameter the parameters you enter to send GET requests
      * @return returns the GET result as a JsonObject
-     * @throws Exception exception on HttpURLConnection openConnection method => Exception occurs when server is down
+     * @throws Exception exception on HttpURLConnection openConnection method. Exception occurs when server is down
      */
     public static JsonObject get(String url, String parameter) throws Exception {
         URL obj = new URL(url + parameter);

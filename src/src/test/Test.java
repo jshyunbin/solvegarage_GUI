@@ -3,8 +3,6 @@ package src.test;
 import com.google.gson.JsonObject;
 import src.Utils.RSA;
 import src.Utils.SecureHttpConnection;
-import src.main.Main;
-import src.scene.main.Controller;
 
 import java.io.IOException;
 import java.net.ConnectException;
@@ -47,7 +45,7 @@ public class Test {
             }
         }
         try {
-            String content = new String(Files.readAllBytes(Paths.get("C:\\Users\\Joshua Lee\\Documents\\이현빈\\경기영재과학고등학교\\정보과학\\정보과학 프로젝트I\\IntelliJ-workspace\\SolveGarage\\src\\src\\test\\image.txt")));
+            String content = new String(Files.readAllBytes(Paths.get("src\\src\\test\\image.txt")));
             System.out.println(content);
             System.out.println(content.length());
             SecureHttpConnection.post(SecureHttpConnection.profileImgURL, "{'id':'test','token':"+token+","+content,

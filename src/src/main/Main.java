@@ -12,9 +12,9 @@ import java.net.ConnectException;
 /**
  * the Main class takes care of the Stages
  *
- * loginStage -> the stage that is used for login screen
- * registerStage -> the stage that is used for sign up screen
- * token -> current user's token
+ * loginStage: the stage that is used for login screen
+ * registerStage: the stage that is used for sign up screen
+ * token: current user's token
  */
 public class Main extends Application {
 
