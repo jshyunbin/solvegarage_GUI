@@ -46,6 +46,7 @@ public class Main extends Application {
 
         primaryStage.setTitle("solvegarage");
         primaryStage.setScene(new Scene(root.load(), 1000, 800));
+        primaryStage.setResizable(false);
         primaryStage.show();
 
         loginScene = new Scene(loginPage);

@@ -3,8 +3,5 @@
 out/
 *.iml
 
-# Java Docs
-JavaDoc/
-
 # images
 src/resources/materialIcons
