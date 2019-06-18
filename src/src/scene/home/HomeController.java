@@ -49,9 +49,9 @@ public class HomeController implements Initializable {
             FXMLLoader problems = new FXMLLoader(getClass().getResource("../../../FXMLs/problemList.fxml"));
             if (success) {
                 String title, body, author, date;
-                title = Base64.getDecoder().decode(object.get("title").getAsString()).toString();
+                title = new String(Base64.getDecoder().decode(object.get("title").getAsString()));
                 author = object.get("author").getAsString();
-                body = Base64.getDecoder().decode(object.get("body").getAsString()).toString();
+                body = new String(Base64.getDecoder().decode(object.get("body").getAsString()));
                 date = object.get("date").getAsString();
                 try {
                     temp = problems.load();

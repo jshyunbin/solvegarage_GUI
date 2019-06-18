@@ -46,14 +46,16 @@ public class Test {
             }
         }
         JsonObject root = null;
-        File file = new File("test.png");
+        File file = new File("C:\\Users\\Joshua Lee\\Documents\\이현빈\\경기영재과학고등학교\\정보과학\\정보과학 " +
+                "프로젝트I\\IntelliJ-workspace\\SolveGarage\\src\\src\\test\\test01.jpg");
         FileInputStream in = new FileInputStream(file);
         byte[] data = new byte[(int) file.length()];
         //noinspection ResultOfMethodCallIgnored
         in.read(data);
         String img = Base64.getEncoder().encodeToString(data);
+        System.out.println(img);
         try {
-            root = SecureHttpConnection.post("http://localhost:3080/profile-image", "{'id':'test','token':'" + token + "','img':'" + img + "'}", serverPublicKey, Objects.requireNonNull(RSA.generateKeyPair()));
+            root = SecureHttpConnection.post("http://buttercrab.iptime.org:3080/profile-image", "{'id':'test','token':'" + token + "','img':'" + img + "'}", serverPublicKey, Objects.requireNonNull(RSA.generateKeyPair()));
         } catch (Exception e) {
             e.printStackTrace();
         }
